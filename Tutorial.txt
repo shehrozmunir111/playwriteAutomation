@@ -1,0 +1,54 @@
+1. Install Nodejs from https://nodejs.org/en/download/
+2. Create a new folder and open it in VS Code/Cursor  
+3. Open the terminal in VS Code/Cursor by pressing Ctrl+`
+4. Install playwright "npm init playwright@latest"
+5. Run the command: npx playwright test
+5. Run the command: npx playwright test --headed
+6. Run the command: npx playwright show-report
+
+-----Create a new file-----
+1. Create a new file called "HomePageTest.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test HomePageTest.spec.js --project=chromium
+4. Run the command: npx playwright test HomePageTest.spec.js --project=chromium --headed
+5. Run the command: npx playwright test HomePageTest.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Locating Web Elements | Locators-Property, XPath, CSS-----
+1. Create a new file called "Locators.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Locators.spec.js --project=chromium
+4. Run the command: npx playwright test Locators.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Locators.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Locating Multiple Elements-----
+1. Create a new file called "LocatingMultipleElements.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test LocatingMultipleElements.spec.js --project=chromium
+4. Run the command: npx playwright test LocatingMultipleElements.spec.js --project=chromium --headed
+5. Run the command: npx playwright test LocatingMultipleElements.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Playwright Locators (https://playwright.dev/docs/locators)-----
+1. Create a new file called "Locators_builtin.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Locators_builtin.spec.js --project=chromium
+4. Run the command: npx playwright test Locators_builtin.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Locators_builtin.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Record & Play Scripts In Playwright |Test Generator| Codegen by (https://playwright.dev/docs/codegen)-----
+1. Run the command: npx playwright codegen https://demoblaze.com/index.html
+2. To generate the automatically file, run the command: npx playwright codegen https://demoblaze.com/index.html -o tests/Codegen.spec.js
+3. It will open a new browser window and record the actions
+4. Click on Record button and perform the actions
+5. Click on Stop button to stop the recording
+
+-----Assertions (https://playwright.dev/docs/test-assertions)-----
+1. Create a new file called "Assertions.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Assertions.spec.js --project=chromium
+4. Run the command: npx playwright test Assertions.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Assertions.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
