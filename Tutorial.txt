@@ -2,6 +2,12 @@
 2. Create a new folder and open it in VS Code/Cursor  
 3. Open the terminal in VS Code/Cursor by pressing Ctrl+`
 4. Install playwright "npm init playwright@latest"
+6. if you clone this repository, you can do these steps:
+
+- Run the command: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass (if you get an error about the execution policy)
+- Run the command: npm install --save-dev playwright (if you don't have node_modules folder)
+- Run the command: npx playwright install (if you don't have the browsers installed)
+
 5. Run the command: npx playwright test
 5. Run the command: npx playwright test --headed
 6. Run the command: npx playwright show-report
