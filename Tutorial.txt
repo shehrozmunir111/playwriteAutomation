@@ -51,10 +51,18 @@
 4. Click on Record button and perform the actions
 5. Click on Stop button to stop the recording
 
------Assertions (https://playwright.dev/docs/test-assertions)-----
+-----Assertions (https://playwright.dev/docs/test-assertions) : Hard Assertions-----
 1. Create a new file called "Assertions.spec.js"
-2. Verify this website https://demoblaze.com/index.html
+2. Verify this website https://demo.nopcommerce.com/register
 3. Run the command: npx playwright test Assertions.spec.js --project=chromium
 4. Run the command: npx playwright test Assertions.spec.js --project=chromium --headed
 5. Run the command: npx playwright test Assertions.spec.js --project=chromium --headed --debug
 5. Run the command: npx playwright show-report
+
+-----Assertions (https://playwright.dev/docs/test-assertions) : Soft Assertions-----
+1. Create a new file called "Assertions_soft.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Assertions_soft.spec.js --project=chromium
+4. Run the command: npx playwright test Assertions_soft.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Assertions_soft.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
