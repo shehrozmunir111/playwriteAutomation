@@ -66,3 +66,27 @@
 4. Run the command: npx playwright test Assertions_soft.spec.js --project=chromium --headed
 5. Run the command: npx playwright test Assertions_soft.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
+
+-----Actions | Input Box | Radio Button-----
+1. Create a new file called "InputBox_RadioButton.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test InputBox_RadioButton.spec.js --project=chromium
+4. Run the command: npx playwright test InputBox_RadioButton.spec.js --project=chromium --headed
+5. Run the command: npx playwright test InputBox_RadioButton.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Actions | Checkboxs-----
+1. Create a new file called "Checkboxs.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test Checkboxs.spec.js --project=chromium
+4. Run the command: npx playwright test Checkboxs.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Checkboxs.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Actions | Dropdowns-----
+1. Create a new file called "Dropdowns.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test Dropdowns.spec.js --project=chromium
+4. Run the command: npx playwright test Dropdowns.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Dropdown.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report

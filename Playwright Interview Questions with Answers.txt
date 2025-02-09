@@ -1,0 +1,154 @@
+PLAYWRIGHT AUTOMATION TESTING INTERVIEW QUESTIONS AND ANSWERS
+
+1. Q: What is Playwright and what are its key features?
+A: Playwright is a modern automation testing framework developed by Microsoft that enables reliable end-to-end testing for web applications. Key features include:
+   - Cross-browser support (Chromium, Firefox, WebKit)
+   - Auto-wait capabilities
+   - Built-in test runner and assertions
+   - Network interception
+   - Mobile emulation
+   - Parallel test execution
+   - Built-in reporting
+
+2. Q: How do you install Playwright in a new project?
+A: There are two main ways:
+   1. Using NPM init:
+      ```bash
+      npm init playwright@latest
+      ```
+   2. Manual installation:
+      ```bash
+      npm install --save-dev playwright
+      npx playwright install
+      ```
+
+3. Q: What are the different ways to locate elements in Playwright?
+A: Based on our project, we use several locator strategies:
+   - Property locators: page.locator('#login2')
+   - CSS locators: page.locator('.header-logo')
+   - XPath locators: page.locator("//div[@id='tbodyid']//h4/a")
+   - Built-in locators:
+     * getByRole()
+     * getByText()
+     * getByPlaceholder()
+     * getByAltText()
+     * getByLabel()
+     * getByTitle()
+     * getByTestId()
+
+4. Q: How do you handle different types of assertions in Playwright?
+A: Our project demonstrates two types of assertions:
+   1. Hard Assertions:
+      ```javascript
+      await expect(page).toHaveTitle('STORE');
+      await expect(page).toHaveURL('https://demoblaze.com/index.html');
+      ```
+   2. Soft Assertions:
+      ```javascript
+      await expect.soft(page).toHaveTitle('STORE123');
+      ```
+
+5. Q: How do you handle dropdowns in Playwright?
+A: Based on our Dropdowns.spec.js, there are multiple ways:
+   ```javascript
+   // By value
+   await page.selectOption('#country', 'Germany');
+   // By label
+   await page.selectOption('#country', {label: 'Germany'});
+   // By index
+   await page.selectOption('#country', {index: 3});
+   ```
+
+6. Q: How do you handle checkboxes and radio buttons in Playwright?
+A: From our project examples:
+   ```javascript
+   // Checkbox
+   await page.locator('#checkbox').check();
+   await page.locator('#checkbox').uncheck();
+   
+   // Radio button
+   await page.locator('#male').check();
+   await expect(page.locator('#male')).toBeChecked();
+   ```
+
+7. Q: How do you run tests in different browsers using Playwright?
+A: Our project configuration shows:
+   ```bash
+   # Run in Chromium
+   npx playwright test --project=chromium
+   
+   # Run in Firefox
+   npx playwright test --project=firefox
+   
+   # Run in WebKit
+   npx playwright test --project=webkit
+   ```
+
+8. Q: How do you handle multiple elements in Playwright?
+A: From LocatingMultipleElements.spec.js:
+   ```javascript
+   const links = await page.$$('a');
+   for (const link of links) {
+       console.log(await link.textContent());
+   }
+   ```
+
+9. Q: What is the difference between page.locator() and page.$() in Playwright?
+A: - page.locator() is the recommended modern way to locate elements
+   - page.$() is the older jQuery-style selector which returns the first matching element
+   - page.locator() has better built-in auto-waiting mechanisms
+
+10. Q: How do you handle test reports in Playwright?
+A: Our project uses HTML reporter configured in playwright.config.js:
+    ```javascript
+    reporter: 'html'
+    ```
+    To view reports:
+    ```bash
+    npx playwright show-report
+    ```
+
+11. Q: How do you handle test retries in Playwright?
+A: From our playwright.config.js:
+    ```javascript
+    retries: process.env.CI ? 2 : 0,
+    ```
+    This configures 2 retries in CI environment and 0 in local.
+
+12. Q: How do you run tests in parallel in Playwright?
+A: Our config shows:
+    ```javascript
+    fullyParallel: true,
+    workers: process.env.CI ? 1 : undefined,
+    ```
+    This enables parallel execution locally while running sequentially in CI.
+
+13. Q: How do you debug tests in Playwright?
+A: Our project supports several debugging methods:
+    ```bash
+    # Debug mode
+    npx playwright test --debug
+    
+    # Headed mode
+    npx playwright test --headed
+    
+    # Both
+    npx playwright test --headed --debug
+    ```
+
+14. Q: What is the purpose of test.beforeEach() in Playwright?
+A: It's used to set up test prerequisites that should run before each test case. Example from our project:
+    ```javascript
+    test.beforeEach(async ({ page }) => {
+        await page.goto('https://demo.playwright.dev/todomvc');
+    });
+    ```
+
+15. Q: How do you handle iframes in Playwright?
+A: While not shown in our current project, you can handle iframes using:
+    ```javascript
+    const frame = page.frameLocator('#iframe-id');
+    await frame.locator('.some-element').click();
+    ```
+
+Note: These questions and answers are based on the actual implementation in this project and reflect real-world usage of Playwright for automation testing. 

@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates automated testing using Playwright for web applications. It focuses on testing the demo websites and includes examples of different testing techniques including locators, assertions, and element handling.
+This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, and assertions on demo websites.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ If you're cloning this repository, follow these steps:
 
 The project includes the following test files:
 
-- **HomePageTest.spec.js**: Tests the DemoBlaze homepage, including:
+- **HomePageTest.spec.js**: Tests the DemoBlaze homepage functionality:
   - Title verification
   - URL verification
   - Logo visibility
@@ -65,11 +65,12 @@ The project includes the following test files:
   - Locating and processing multiple products
   - Element text extraction
 
-- **Assertions.spec.js**: Basic assertion examples:
+- **Assertions.spec.js**: Comprehensive assertion examples:
   - Title assertions
   - URL assertions
   - Element visibility checks
-  - Text content verification
+  - Form control assertions
+  - Dropdown options verification
 
 - **Assertions_soft.spec.js**: Demonstrates assertion types:
   - Hard assertions
@@ -77,12 +78,21 @@ The project includes the following test files:
   - Page title and URL verification
   - Element visibility checks
 
-- **Codegen.spec.js**: Auto-generated test script that demonstrates:
-  - Login flow automation
-  - Form filling
-  - Button interactions
-  - Logout process
-  - Using Playwright's codegen tool
+- **InputBox_RadioButton.spec.js**: Tests form input interactions:
+  - Input field validation
+  - Radio button interactions
+  - Element state verification
+
+- **Checkboxs.spec.js**: Tests checkbox functionality:
+  - Single checkbox interactions
+  - Multiple checkbox handling
+  - Checkbox state verification
+
+- **Dropdowns.spec.js**: Tests dropdown functionality:
+  - Different selection methods
+  - Option counting
+  - Value presence verification
+  - Dynamic option selection
 
 ## Running Tests
 
@@ -129,9 +139,11 @@ playwriteautomation/
 │   ├── Locators.spec.js
 │   ├── Locators_builtin.spec.js
 │   ├── LocatingMultipleElements.spec.js
-│   ├── Codegen.spec.js
 │   ├── Assertions.spec.js
-│   └── Assertions_soft.spec.js
+│   ├── Assertions_soft.spec.js
+│   ├── InputBox_RadioButton.spec.js
+│   ├── Checkboxs.spec.js
+│   └── Dropdowns.spec.js
 ├── playwright-report/
 ├── test-results/
 ├── node_modules/
