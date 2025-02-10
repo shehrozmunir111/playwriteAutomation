@@ -4,7 +4,7 @@
 4. Install playwright "npm init playwright@latest"
 6. if you clone this repository, you can do these steps:
 
-- Run the command: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass (if you get an error about the execution policy)
+- Run the command: Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy RemoteSigned (if you get an error about the execution policy)
 - Run the command: npm install --save-dev playwright (if you don't have node_modules folder)
 - Run the command: npx playwright install (if you don't have the browsers installed)
 
@@ -89,4 +89,28 @@
 3. Run the command: npx playwright test Dropdowns.spec.js --project=chromium
 4. Run the command: npx playwright test Dropdowns.spec.js --project=chromium --headed
 5. Run the command: npx playwright test Dropdown.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Actions | Multi Select Dropdown-----
+1. Create a new file called "MultiSelectDropdown.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test MultiSelectDropdown.spec.js --project=chromium
+4. Run the command: npx playwright test MultiSelectDropdown.spec.js --project=chromium --headed
+5. Run the command: npx playwright test MultiSelectDropdown.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Auto Suggestive / Auto Complete Dropdown-----
+1. Create a new file called "AutoSuggestDropdown.spec.js"
+2. Verify this website https://www.redbus.in/
+3. Run the command: npx playwright test AutoSuggestDropdown.spec.js --project=chromium
+4. Run the command: npx playwright test AutoSuggestDropdown.spec.js --project=chromium --headed
+5. Run the command: npx playwright test AutoSuggest.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Hidden Dropdown-----
+1. Create a new file called "HiddenDropdown.spec.js"
+2. Verify this website https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+3. Run the command: npx playwright test HiddenDropdown.spec.js --project=chromium
+4. Run the command: npx playwright test HiddenDropdown.spec.js --project=chromium --headed
+5. Run the command: npx playwright test HiddenDropdown.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report

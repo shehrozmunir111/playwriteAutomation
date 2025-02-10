@@ -55,10 +55,10 @@ The project includes the following test files:
   - Login/logout functionality testing
 
 - **Locators_builtin.spec.js**: Shows usage of Playwright's built-in locators:
+  - getByAltText()
+  - getByPlaceholder()
   - getByRole()
   - getByText()
-  - getByPlaceholder()
-  - getByAltText()
 
 - **LocatingMultipleElements.spec.js**: Examples of handling multiple elements:
   - Finding all links on a page
@@ -93,6 +93,21 @@ The project includes the following test files:
   - Option counting
   - Value presence verification
   - Dynamic option selection
+
+- **MultiSelectDropdown.spec.js**: Tests multi-select dropdown functionality:
+  - Multiple option selection
+  - Option counting
+  - Value verification
+
+- **AutoSuggestDropdown.spec.js**: Tests auto-suggest dropdown functionality:
+  - Dynamic option handling
+  - Search and selection
+  - Text verification
+
+- **HiddenDropdown.spec.js**: Tests hidden dropdown functionality:
+  - Hidden option handling
+  - Dynamic selection
+  - Value verification
 
 ## Running Tests
 
@@ -143,7 +158,10 @@ playwriteautomation/
 │   ├── Assertions_soft.spec.js
 │   ├── InputBox_RadioButton.spec.js
 │   ├── Checkboxs.spec.js
-│   └── Dropdowns.spec.js
+│   ├── Dropdowns.spec.js
+│   ├── MultiSelectDropdown.spec.js
+│   ├── AutoSuggestDropdown.spec.js
+│   └── HiddenDropdown.spec.js
 ├── playwright-report/
 ├── test-results/
 ├── node_modules/
