@@ -114,3 +114,27 @@
 4. Run the command: npx playwright test HiddenDropdown.spec.js --project=chromium --headed
 5. Run the command: npx playwright test HiddenDropdown.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
+
+-----Alert Handling-----
+1. Create a new file called "AlertHandling.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test AlertHandling.spec.js --project=chromium
+4. Run the command: npx playwright test AlertHandling.spec.js --project=chromium --headed
+5. Run the command: npx playwright test AlertHandling.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----frame/iframe-----
+1. Create a new file called "HandleFrames.spec.js"
+2. Verify this website https://ui.vision/demo/webtest/frames/
+3. Run the command: npx playwright test HandleFrames.spec.js --project=chromium
+4. Run the command: npx playwright test HandleFrames.spec.js --project=chromium --headed
+5. Run the command: npx playwright test HandleFrames.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----WebTable/Pagination-----
+1. Create a new file called "WebTable.spec.js"
+2. Verify this website https://datatables.net/examples/api/multi_filter.html
+3. Run the command: npx playwright test WebTable.spec.js --project=chromium
+4. Run the command: npx playwright test WebTable.spec.js --project=chromium --headed
+5. Run the command: npx playwright test WebTable.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
