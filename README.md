@@ -30,7 +30,7 @@ If you're cloning this repository, follow these steps:
 
 4. Install dependencies:
    ```bash
-   npm install --save-dev playwright
+   npm install --save-dev @playwright/test playwright
    ```
 
 5. Install Playwright browsers:
@@ -44,70 +44,70 @@ The project includes the following test files:
 
 - **HomePageTest.spec.js**: Tests the DemoBlaze homepage functionality
   - Website: https://demoblaze.com/index.html
-  - Title verification
+  - Title verification ("STORE")
   - URL verification
   - Logo visibility
-  - Navigation links presence
+  - Navigation links presence (Home, Contact, About us, Cart, Log in, Sign up)
 
 - **Locators.spec.js**: Demonstrates different locator strategies
   - Website: https://demoblaze.com/index.html
-  - Property locators
-  - CSS locators
+  - Property locators (id=login2)
+  - CSS locators (#loginusername)
   - XPath locators
-  - Login/logout functionality testing
+  - Login/logout functionality testing with credentials
 
 - **LocatingMultipleElements.spec.js**: Examples of handling multiple elements
   - Website: https://demoblaze.com/index.html
-  - Finding all links on a page
+  - Finding and counting all links using $$('a')
   - Locating and processing multiple products
-  - Element text extraction
+  - Element text extraction and logging
 
 - **Locators_builtin.spec.js**: Shows usage of Playwright's built-in locators
-  - Website: https://demoblaze.com/index.html
-  - getByAltText()
-  - getByPlaceholder()
-  - getByRole()
-  - getByText()
+  - Website: https://opensource-demo.orangehrmlive.com/
+  - getByAltText() for logo
+  - getByPlaceholder() for username/password
+  - getByRole() for buttons
+  - getByText() for verification
 
 - **Assertions.spec.js**: Comprehensive assertion examples
   - Website: https://demo.nopcommerce.com/register
-  - Title assertions
-  - URL assertions
+  - Title and URL assertions
   - Element visibility checks
-  - Form control assertions
-  - Dropdown options verification
+  - Form control assertions (enabled, editable)
+  - Dropdown options verification with counts
 
 - **Assertions_soft.spec.js**: Demonstrates assertion types
   - Website: https://demoblaze.com/index.html
-  - Hard assertions
-  - Soft assertions
+  - Hard assertions (immediate failure)
+  - Soft assertions (continue on failure)
   - Page title and URL verification
   - Element visibility checks
 
 - **InputBox_RadioButton.spec.js**: Tests form input interactions
   - Website: https://testautomationpractice.blogspot.com/
-  - Input field validation
-  - Radio button interactions
-  - Element state verification
+  - Input field validation (visible, empty, editable, enabled)
+  - Radio button interactions (check, verify)
+  - Element state verification (disabled, hidden)
 
 - **Checkboxs.spec.js**: Tests checkbox functionality
   - Website: https://testautomationpractice.blogspot.com/
   - Single checkbox interactions
-  - Multiple checkbox handling
+  - Multiple checkbox handling with arrays
   - Checkbox state verification
+  - Count and name extraction
 
 - **Dropdowns.spec.js**: Tests dropdown functionality
   - Website: https://testautomationpractice.blogspot.com/
-  - Different selection methods
-  - Option counting
+  - Different selection methods (value, label, index)
+  - Option counting approaches
   - Value presence verification
-  - Dynamic option selection
+  - Dynamic option selection using loops
 
 - **MultiSelectDropdown.spec.js**: Tests multi-select dropdown functionality
   - Website: https://testautomationpractice.blogspot.com/
   - Multiple option selection
-  - Option counting
-  - Value verification
+  - Option counting using different methods
+  - Value verification using includes()
 
 - **AutoSuggestDropdown.spec.js**: Tests auto-suggest dropdown functionality
   - Website: https://www.redbus.in/
@@ -117,15 +117,16 @@ The project includes the following test files:
 
 - **HiddenDropdown.spec.js**: Tests hidden dropdown functionality
   - Website: https://opensource-demo.orangehrmlive.com/
+  - Login and navigation
   - Hidden option handling
   - Dynamic selection
   - Value verification
 
 - **AlertHandling.spec.js**: Tests alert dialog functionality
   - Website: https://testautomationpractice.blogspot.com/
-  - Alert with OK
-  - Confirmation dialog
-  - Prompt dialog
+  - Alert with OK button
+  - Confirmation dialog (OK/Cancel)
+  - Prompt dialog with text input
 
 - **HandleFrames.spec.js**: Tests iframe functionality
   - Website: https://ui.vision/demo/webtest/frames/
@@ -134,10 +135,17 @@ The project includes the following test files:
   - Frame interactions
 
 - **WebTable.spec.js**: Tests web table functionality
-  - Website: https://datatables.net/examples/api/multi_filter.html
-  - Table data handling
-  - Pagination
-  - Data verification
+  - Table data handling with loops
+  - Product selection by text matching
+  - Multiple product selection
+  - Pagination handling
+
+- **DatePicker.spec.js**: Tests date picker functionality
+  - Website: https://testautomationpractice.blogspot.com/
+  - Direct date input
+  - Date picker navigation
+  - Month/year selection
+  - Date validation
 
 ## Running Tests
 
@@ -194,12 +202,14 @@ playwriteautomation/
 │   ├── HiddenDropdown.spec.js
 │   ├── AlertHandling.spec.js
 │   ├── HandleFrames.spec.js
-│   └── WebTable.spec.js
+│   ├── WebTable.spec.js
+│   └── DatePicker.spec.js
 ├── playwright-report/
 ├── test-results/
 ├── node_modules/
 ├── playwright.config.js
-└── package.json
+├── package.json
+└── .gitignore
 
 ```
 

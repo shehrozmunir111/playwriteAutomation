@@ -133,8 +133,16 @@
 
 -----WebTable/Pagination-----
 1. Create a new file called "WebTable.spec.js"
-2. Verify this website https://datatables.net/examples/api/multi_filter.html
+2. Verify this website https://testautomationpractice.blogspot.com/
 3. Run the command: npx playwright test WebTable.spec.js --project=chromium
 4. Run the command: npx playwright test WebTable.spec.js --project=chromium --headed
 5. Run the command: npx playwright test WebTable.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Date Picker-----
+1. Create a new file called "DatePicker.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test DatePicker.spec.js --project=chromium
+4. Run the command: npx playwright test DatePicker.spec.js --project=chromium --headed
+5. Run the command: npx playwright test DatePicker.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
