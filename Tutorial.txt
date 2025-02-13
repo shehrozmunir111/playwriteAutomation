@@ -146,3 +146,28 @@
 4. Run the command: npx playwright test DatePicker.spec.js --project=chromium --headed
 5. Run the command: npx playwright test DatePicker.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
+
+-----Mouse Actions-----
+1. Create a new file called "MouseActions.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test MouseActions.spec.js --project=chromium
+4. Run the command: npx playwright test MouseActions.spec.js --project=chromium --headed
+5. Run the command: npx playwright test MouseActions.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Keyboard Actions-----
+1. Create a new file called "KeyboardActions.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test KeyboardActions.spec.js --project=chromium
+4. Run the command: npx playwright test KeyboardActions.spec.js --project=chromium --headed
+5. Run the command: npx playwright test KeyboardActions.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----File Upload-----
+1. Create a new file called "FilesUpload.spec.js"
+2. Verify this website https://testautomationpractice.blogspot.com/
+3. Run the command: npx playwright test FilesUpload.spec.js --project=chromium
+4. Run the command: npx playwright test FilesUpload.spec.js --project=chromium --headed
+5. Run the command: npx playwright test FilesUpload.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+

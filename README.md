@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, alerts, frames, and assertions on demo websites.
+This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, alerts, frames, file uploads, and assertions on demo websites.
 
 ## Prerequisites
 
@@ -147,6 +147,30 @@ The project includes the following test files:
   - Month/year selection
   - Date validation
 
+- **FilesUpload.spec.js**: Tests file upload functionality
+  - Website: https://testautomationpractice.blogspot.com/
+  - Single file upload handling
+  - Multiple files upload handling
+  - Upload status verification
+  - File name verification
+
+- **MouseActions.spec.js**: Tests mouse interaction functionality
+  - Website: https://testautomationpractice.blogspot.com/
+  - Mouse hover actions
+  - Right-click interactions
+  - Double-click handling
+  - Drag and drop operations (two approaches)
+    * Using dragTo() method
+    * Manual dragging with mouse down/up events
+
+- **KeyboardActions.spec.js**: Tests keyboard interaction functionality
+  - Website: https://testautomationpractice.blogspot.com/
+  - Keyboard typing
+  - Key combinations (Ctrl+A, Ctrl+C)
+  - Individual key actions (Tab)
+  - Text manipulation with keyboard shortcuts
+  - Copy and paste operations
+
 ## Running Tests
 
 ### Basic Commands
@@ -203,7 +227,11 @@ playwriteautomation/
 │   ├── AlertHandling.spec.js
 │   ├── HandleFrames.spec.js
 │   ├── WebTable.spec.js
-│   └── DatePicker.spec.js
+│   ├── DatePicker.spec.js
+│   ├── FilesUpload.spec.js
+│   ├── MouseActions.spec.js
+│   └── KeyboardActions.spec.js
+├── tests/uploadFiles/      # Directory for test files used in upload tests
 ├── playwright-report/
 ├── test-results/
 ├── node_modules/
@@ -212,7 +240,3 @@ playwriteautomation/
 └── .gitignore
 
 ```
-
-## Contributing
-
-If you would like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
