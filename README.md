@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, alerts, frames, file uploads, and assertions on demo websites.
+This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, alerts, frames, file uploads, screenshots, video recording, and assertions on demo websites.
 
 ## Prerequisites
 
@@ -68,6 +68,13 @@ The project includes the following test files:
   - getByPlaceholder() for username/password
   - getByRole() for buttons
   - getByText() for verification
+
+- **Codegen.spec.js**: Generated test script using Playwright's Codegen
+  - Website: https://demoblaze.com/index.html
+  - Auto-generated test steps
+  - Record and playback functionality
+  - Generated using `npx playwright codegen`
+  - Demonstrates automated test recording capability
 
 - **Assertions.spec.js**: Comprehensive assertion examples
   - Website: https://demo.nopcommerce.com/register
@@ -171,6 +178,35 @@ The project includes the following test files:
   - Text manipulation with keyboard shortcuts
   - Copy and paste operations
 
+- **Screenshot.spec.js**: Tests screenshot functionality
+  - Website: https://demoblaze.com/index.html
+  - Page screenshot capture
+  - Login process screenshot
+  - Automatic screenshot on failure (configured in playwright.config.js)
+  - Screenshot storage in tests/screenshots directory
+
+- **VideoRecording.spec.js**: Tests video recording functionality
+  - Website: https://demoblaze.com/index.html
+  - Full test session recording
+  - Video capture configuration in playwright.config.js
+  - Automatic video recording of test execution
+  - Video storage in test-results directory
+
+- **Hooks.spec.js**: Demonstrates test hooks functionality
+  - Website: https://demoblaze.com/index.html
+  - beforeAll hook for login setup
+  - beforeEach hook for per-test initialization
+  - afterEach hook for cleanup
+  - afterAll hook for session cleanup
+  - Login/logout automation using hooks
+
+- **Grouping.spec.js**: Shows test organization using describe blocks
+  - Test grouping by functionality
+  - Nested describe blocks
+  - Test suite organization
+  - Shared setup and teardown
+  - Focused and skipped test groups
+
 ## Running Tests
 
 ### Basic Commands
@@ -216,6 +252,7 @@ playwriteautomation/
 │   ├── Locators.spec.js
 │   ├── Locators_builtin.spec.js
 │   ├── LocatingMultipleElements.spec.js
+│   ├── Codegen.spec.js
 │   ├── Assertions.spec.js
 │   ├── Assertions_soft.spec.js
 │   ├── InputBox_RadioButton.spec.js
@@ -230,10 +267,15 @@ playwriteautomation/
 │   ├── DatePicker.spec.js
 │   ├── FilesUpload.spec.js
 │   ├── MouseActions.spec.js
-│   └── KeyboardActions.spec.js
-├── tests/uploadFiles/      # Directory for test files used in upload tests
-├── playwright-report/
-├── test-results/
+│   ├── KeyboardActions.spec.js
+│   ├── Screenshot.spec.js
+│   ├── VideoRecording.spec.js
+│   ├── Hooks.spec.js
+│   └── Grouping.spec.js
+├── tests/screenshots/     # Directory for captured screenshots
+├── tests/uploadFiles/     # Directory for test files used in upload tests
+├── playwright-report/     # Test reports including screenshots and videos
+├── test-results/         # Test execution results and recordings
 ├── node_modules/
 ├── playwright.config.js
 ├── package.json

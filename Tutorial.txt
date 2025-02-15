@@ -171,3 +171,33 @@
 5. Run the command: npx playwright test FilesUpload.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
 
+-----Hooks-----
+1. Create a new file called "Hooks.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Hooks.spec.js --project=chromium
+4. Run the command: npx playwright test Hooks.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Hooks.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Grouping Tests - Describe Block-----
+1. Create a new file called "Grouping.spec.js"
+2. Run the command: npx playwright test Grouping.spec.js --project=chromium
+3. Run the command: npx playwright test Grouping.spec.js --project=chromium --headed
+4. Run the command: npx playwright test Grouping.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Screenshot-----
+1. Create a new file called "Screenshot.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Screenshot.spec.js --project=chromium
+4. Run the command: npx playwright test Screenshot.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Screenshot.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Video Recording-----
+1. Create a new file called "VideoRecording.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test VideoRecording.spec.js --project=chromium
+4. Run the command: npx playwright test VideoRecording.spec.js --project=chromium --headed
+5. Run the command: npx playwright test VideoRecording.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
