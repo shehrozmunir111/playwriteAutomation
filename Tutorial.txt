@@ -201,3 +201,39 @@
 4. Run the command: npx playwright test VideoRecording.spec.js --project=chromium --headed
 5. Run the command: npx playwright test VideoRecording.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
+
+-----Tracing-----
+1. Create a new file called "Tracing.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test Tracing.spec.js --project=chromium
+4. Run the command: npx playwright test Tracing.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Tracing.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report
+
+-----Tags-----
+1. Create a new file called "Tags.spec.js"
+3. Run the command: npx playwright test Tags.spec.js --project=chromium
+4. Run the command: npx playwright test Tags.spec.js --project=chromium --headed
+5. Run the command: npx playwright test Tags.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright test Tags.spec.js --project=chromium --grep "@sanity"
+7. Run the command: npx playwright test Tags.spec.js --project=chromium --grep-invert "@sanity"
+8. Run the command: npx playwright test Tags.spec.js --project=chromium --grep "@sanity@regression"
+9. Run the command: npx playwright test Tags.spec.js --project=chromium --grep-invert "@sanity@regression"
+10. Run the command: npx playwright test Tags.spec.js --project=chromium --grep "@sanity" --grep-invert "@regression"
+11. Run the command: npx playwright test Tags.spec.js --project=chromium --grep "@regression" --grep-invert "@sanity"
+12. Run the command: npx playwright show-report
+
+-----Annotations-----
+1. Create a new file called "Annotations.spec.js"
+2. Run the command: npx playwright test Annotations.spec.js --project=chromium
+3. Run the command: npx playwright test Annotations.spec.js --project=chromium --headed
+4. Run the command: npx playwright test Annotations.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
+
+-----Page Object Model-----
+1. Create a new file called "POM.spec.js"
+2. Verify this website https://demoblaze.com/index.html
+3. Run the command: npx playwright test POM.spec.js --project=chromium
+4. Run the command: npx playwright test POM.spec.js --project=chromium --headed
+5. Run the command: npx playwright test POM.spec.js --project=chromium --headed --debug
+6. Run the command: npx playwright show-report

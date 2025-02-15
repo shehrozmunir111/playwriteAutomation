@@ -30,7 +30,7 @@ If you're cloning this repository, follow these steps:
 
 4. Install dependencies:
    ```bash
-   npm install --save-dev @playwright/test playwright
+   npm install --save-dev playwright
    ```
 
 5. Install Playwright browsers:
@@ -74,7 +74,6 @@ The project includes the following test files:
   - Auto-generated test steps
   - Record and playback functionality
   - Generated using `npx playwright codegen`
-  - Demonstrates automated test recording capability
 
 - **Assertions.spec.js**: Comprehensive assertion examples
   - Website: https://demo.nopcommerce.com/register
@@ -206,6 +205,19 @@ The project includes the following test files:
   - Test suite organization
   - Shared setup and teardown
   - Focused and skipped test groups
+  
+  - **Tags.spec.js**: Demonstrates test tagging
+  - Test organization with tags
+  - Running tests by tags
+  - Tag filtering
+
+- **Annotations.spec.js**: Shows test annotations usage
+  - Test organization
+  - Test metadata
+
+- **POM.spec.js**: Implements Page Object Model
+  - Website: https://demoblaze.com/index.html
+  - Page object pattern implementation
 
 ## Running Tests
 
@@ -243,6 +255,12 @@ The project includes the following test files:
   npx playwright test filename.spec.js --project=chromium --headed --debug
   ```
 
+- Run tests with tags:
+  ```bash
+  npx playwright test --grep "@sanity"
+  npx playwright test --grep-invert "@regression"
+  ```
+
 ## Project Structure
 
 ```
@@ -272,6 +290,10 @@ playwriteautomation/
 │   ├── VideoRecording.spec.js
 │   ├── Hooks.spec.js
 │   └── Grouping.spec.js
+│   ├── Tracing.spec.js
+│   ├── Tags.spec.js
+│   ├── Annotations.spec.js
+│   ├── POM.spec.js
 ├── tests/screenshots/     # Directory for captured screenshots
 ├── tests/uploadFiles/     # Directory for test files used in upload tests
 ├── playwright-report/     # Test reports including screenshots and videos
