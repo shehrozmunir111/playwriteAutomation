@@ -230,10 +230,11 @@
 4. Run the command: npx playwright test Annotations.spec.js --project=chromium --headed --debug
 5. Run the command: npx playwright show-report
 
------Page Object Model-----
+-----Page Object Model----- (POM contains: Constructor (all the attributes of the element), action methods to use the Elements)
 1. Create a new file called "POM.spec.js"
 2. Verify this website https://demoblaze.com/index.html
 3. Run the command: npx playwright test POM.spec.js --project=chromium
 4. Run the command: npx playwright test POM.spec.js --project=chromium --headed
 5. Run the command: npx playwright test POM.spec.js --project=chromium --headed --debug
 6. Run the command: npx playwright show-report
+
