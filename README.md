@@ -219,6 +219,18 @@ The project includes the following test files:
   - Website: https://demoblaze.com/index.html
   - Page object pattern implementation
 
+- **HandlingWindows.spec.js**: Tests multiple windows/pages functionality
+  - Creating and managing multiple browser contexts
+  - Opening multiple pages
+  - Page count verification
+  - Title and URL verification across pages
+
+- **Reporters.spec.js**: Demonstrates different reporting options
+  - Basic test execution reporting
+  - Title verification reporting
+  - Multiple reporting formats support
+  - Integration with Playwright's reporting system
+
 ## Running Tests
 
 ### Basic Commands
@@ -294,6 +306,12 @@ playwriteautomation/
 │   ├── Tags.spec.js
 │   ├── Annotations.spec.js
 │   ├── POM.spec.js
+│   ├── HandlingWindows.spec.js
+│   ├── Reporters.spec.js
+│   └── pages/
+│       ├── LoginPage.js
+│       ├── HomePage.js
+│       └── CartPage.js
 ├── tests/screenshots/     # Directory for captured screenshots
 ├── tests/uploadFiles/     # Directory for test files used in upload tests
 ├── playwright-report/     # Test reports including screenshots and videos

@@ -18,6 +18,7 @@ test('POM Test', async ({ page }) => {
 
     // Cart Page
     const cartPage = new CartPage(page);
+    await page.waitForTimeout(5000)
     const status = await cartPage.checkProductsInCart('Nexus 6');
     await expect(status).toBeTruthy();
     expect(await status).toBe(true);

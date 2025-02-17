@@ -151,4 +151,131 @@ A: While not shown in our current project, you can handle iframes using:
     await frame.locator('.some-element').click();
     ```
 
+16. Q: How do you implement Page Object Model (POM) in Playwright?
+A: From our POM.spec.js and pages/ directory:
+    ```javascript
+    // LoginPage.js
+    export class LoginPage {
+        constructor(page) {
+            this.page = page;
+            this.loginLink = "#login2";
+            this.usernameInput = "#loginusername";
+            this.passwordInput = "#loginpassword";
+            this.loginButton = '//button[normalize-space()="Log in"]';
+        }
+        async login(username, password) {
+            await this.page.locator(this.loginLink).click();
+            await this.page.locator(this.usernameInput).fill(username);
+            await this.page.locator(this.passwordInput).fill(password);
+            await this.page.locator(this.loginButton).click();
+        }
+    }
+    ```
+
+17. Q: How do you handle multiple windows/pages in Playwright?
+A: From our HandlingWindows.spec.js:
+    ```javascript
+    const browser = await chromium.launch()
+    const context = await browser.newContext()
+
+    const page1 = await context.newPage()
+    const page2 = await context.newPage()
+
+    const allPages = context.pages()
+    console.log("No of Pages created:", allPages.length)
+    ```
+
+18. Q: How do you handle screenshots in Playwright?
+A: From our Screenshot.spec.js:
+    ```javascript
+    await page.screenshot({ 
+        path: 'tests/screenshots/' + Date.now() + 'HomePage.png' 
+    });
+    ```
+
+19. Q: How do you handle video recording in Playwright?
+A: Configure in playwright.config.js and use in VideoRecording.spec.js:
+    ```javascript
+    // In config
+    use: {
+        video: 'on-first-retry'
+    }
+    
+    // In test
+    test('Video Recording', async ({ page }) => {
+        // Test actions will be recorded automatically
+    });
+    ```
+
+20. Q: How do you handle tracing in Playwright?
+A: From our Tracing.spec.js:
+    ```javascript
+    // Configure in playwright.config.js
+    use: {
+        trace: 'on-first-retry'
+    }
+    
+    // View trace
+    npx playwright show-trace test-results/trace.zip
+    ```
+
+21. Q: How do you handle test hooks in Playwright?
+A: From our Hooks.spec.js:
+    ```javascript
+    test.beforeAll(async ({ browser }) => {
+        const context = await browser.newContext();
+        page = await context.newPage();
+        await page.goto('https://demoblaze.com/index.html');
+        // Login setup
+    });
+    ```
+
+22. Q: How do you handle test reporting in Playwright?
+A: From our Reporters.spec.js and configuration:
+    ```javascript
+    // In playwright.config.js
+    reporter: [
+        ['html'],
+        ['list']
+    ]
+    
+    // Run tests and generate report
+    npx playwright test
+    npx playwright show-report
+    ```
+
+23. Q: How do you handle test tags in Playwright?
+A: From our Tags.spec.js:
+    ```javascript
+    test('Test1@sanity', async ({ page }) => {
+        // Test code
+    });
+    
+    // Run with tags
+    npx playwright test --grep "@sanity"
+    npx playwright test --grep-invert "@regression"
+    ```
+
+24. Q: How do you handle test annotations in Playwright?
+A: From our Annotations.spec.js:
+    ```javascript
+    test.skip('Test2', async ({ page }) => {
+        // This test will be skipped
+    });
+    
+    test.fixme('Test4', async ({ page }) => {
+        // This test needs fixing
+    });
+    ```
+
+25. Q: How do you handle keyboard actions in Playwright?
+A: From our KeyboardActions.spec.js:
+    ```javascript
+    await page.keyboard.type('Hello World!');
+    await page.keyboard.press('Control+A');
+    await page.keyboard.press('Control+C');
+    await page.keyboard.down('Tab');
+    await page.keyboard.up('Tab');
+    ```
+
 Note: These questions and answers are based on the actual implementation in this project and reflect real-world usage of Playwright for automation testing. 
