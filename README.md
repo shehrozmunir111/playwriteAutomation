@@ -2,7 +2,26 @@
 
 ## Description
 
-This project demonstrates automated testing using Playwright for web applications. It focuses on testing various web elements and interactions including dropdowns, checkboxes, input fields, alerts, frames, file uploads, screenshots, video recording, and assertions on demo websites.
+This project demonstrates automated testing using Playwright for web applications. It provides a comprehensive testing framework that includes:
+
+- Web element interactions testing:
+  * Dropdowns, checkboxes, and input fields
+  * Alerts, frames, and file uploads
+  * Screenshots and video recording
+  * Assertions on demo websites
+  
+- API testing capabilities:
+  * CRUD operations with REST endpoints
+  * Response validation and status verification
+  * JSON payload handling
+  * Error scenarios testing
+
+- Advanced testing features:
+  * Page Object Model (POM) for better maintainability
+  * Test retry mechanisms for handling flaky tests
+  * Allure reporting integration
+  * Multiple browser support with parallel execution
+  * Comprehensive error handling and debugging
 
 ## Prerequisites
 
@@ -231,6 +250,68 @@ The project includes the following test files:
   - Multiple reporting formats support
   - Integration with Playwright's reporting system
 
+- **APITests.spec.js**: Demonstrates API testing capabilities
+  - API endpoint: https://reqres.in/api/users
+  - CRUD operations testing:
+    * POST request for user creation
+    * GET request for user retrieval
+    * PUT request for user update
+    * DELETE request for user removal
+  - Response validation
+  - Status code verification
+  - JSON payload handling
+  - Error scenarios testing
+
+- **RetryTest.spec.js**: Demonstrates test retry functionality
+  - Implementation of Page Object Model (POM)
+  - Login process testing
+  - Product addition to cart
+  - Cart verification
+  - Automatic retry on failure
+  - Test flakiness handling
+
+## Test Configuration
+
+### Retry Configuration
+
+Configure test retries in playwright.config.js:
+```javascript
+use: {
+  retries: 2,  // Number of retry attempts
+  timeout: 30000,  // Timeout in milliseconds
+}
+```
+
+### Running Tests with Retries
+
+```bash
+# Run tests with specific retry count
+npx playwright test --retries=3
+
+# Run tests with retry and headed mode
+npx playwright test --retries=3 --headed
+```
+
+## API Testing
+
+### Prerequisites
+- API endpoint access
+- Request/response handling capabilities
+- JSON parsing functionality
+
+### Example API Test
+```javascript
+test('API Test Example', async ({ request }) => {
+    const response = await request.post('https://reqres.in/api/users', {
+        data: {
+            "name": "user1",
+            "job": "leader"
+        }
+    });
+    expect(response.status()).toBe(201);
+});
+```
+
 ## Running Tests
 
 ### Basic Commands
@@ -301,13 +382,15 @@ playwriteautomation/
 │   ├── Screenshot.spec.js
 │   ├── VideoRecording.spec.js
 │   ├── Hooks.spec.js
-│   └── Grouping.spec.js
+│   ├── Grouping.spec.js
 │   ├── Tracing.spec.js
 │   ├── Tags.spec.js
 │   ├── Annotations.spec.js
 │   ├── POM.spec.js
 │   ├── HandlingWindows.spec.js
 │   ├── Reporters.spec.js
+│   ├── APITests.spec.js        # API testing examples
+│   ├── RetryTest.spec.js       # Test retry demonstrations
 │   └── pages/
 │       ├── LoginPage.js
 │       ├── HomePage.js
@@ -316,6 +399,8 @@ playwriteautomation/
 ├── tests/uploadFiles/     # Directory for test files used in upload tests
 ├── playwright-report/     # Test reports including screenshots and videos
 ├── test-results/         # Test execution results and recordings
+├── allure-results/       # Allure report results
+├── allure-report/        # Generated Allure reports
 ├── node_modules/
 ├── playwright.config.js
 ├── package.json

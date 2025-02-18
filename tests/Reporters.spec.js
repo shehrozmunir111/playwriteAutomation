@@ -21,3 +21,4 @@ test('Test3', async ({page})=> {
 // For html: npx playwright test Reporters.spec.js --project=chromium --reporter=html
 // For Json: npx playwright test Reporters.spec.js --project=chromium --reporter=json but first set the environment variable
 // For JUnit: npx playwright test Reporters.spec.js --project=chromium --reporter=junit but first set the environment variable
+// For Allure Reports: See the Tutorial.txt

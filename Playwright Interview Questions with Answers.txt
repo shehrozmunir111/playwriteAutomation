@@ -268,14 +268,277 @@ A: From our Annotations.spec.js:
     });
     ```
 
-25. Q: How do you handle keyboard actions in Playwright?
-A: From our KeyboardActions.spec.js:
+25. Q: How do you handle API testing in Playwright?
+A: From our APITests.spec.js:
     ```javascript
-    await page.keyboard.type('Hello World!');
-    await page.keyboard.press('Control+A');
-    await page.keyboard.press('Control+C');
-    await page.keyboard.down('Tab');
-    await page.keyboard.up('Tab');
+    test('API Test', async ({ request }) => {
+        // POST request
+        const response = await request.post('https://reqres.in/api/users', {
+            data: {
+                "name": "shehroz", 
+                "job": "trainer"
+            },
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+        
+        expect(response.status()).toBe(201);
+        const jsonResponse = await response.json();
+        console.log(jsonResponse);
+    });
     ```
 
-Note: These questions and answers are based on the actual implementation in this project and reflect real-world usage of Playwright for automation testing. 
+26. Q: How do you implement test retries for flaky tests in Playwright?
+A: From our RetryTest.spec.js and configuration:
+    ```javascript
+    // In playwright.config.js
+    use: {
+        retries: 2,
+        timeout: 30000,
+    }
+    
+    // Running tests with retries
+    npx playwright test --retries=3
+    ```
+
+27. Q: How do you handle test data in Playwright?
+A: Our project demonstrates several approaches:
+   - Page Object Model for test data organization
+   - External test data files
+   - API response data handling
+   - Environment variables for configuration
+
+28. Q: What is the difference between hard and soft assertions in Playwright?
+A: From our Assertions_soft.spec.js:
+    ```javascript
+    // Hard assertions - test stops on failure
+    await expect(page).toHaveTitle('STORE');
+    
+    // Soft assertions - test continues on failure
+    await expect.soft(page).toHaveTitle('STORE123');
+    ```
+
+29. Q: How do you implement Page Object Model with API testing?
+A: Our project combines POM with API testing:
+    ```javascript
+    // API methods in page objects
+    class APIPage {
+        constructor(request) {
+            this.request = request;
+        }
+        
+        async createUser(userData) {
+            return await this.request.post('https://reqres.in/api/users', {
+                data: userData
+            });
+        }
+    }
+    ```
+
+30. Q: How do you handle test reporting with Allure in Playwright?
+A: From our project configuration:
+    ```javascript
+    // Install allure-playwright
+    npm i -D @playwright/test allure-playwright
+    
+    // Configure in playwright.config.js
+    reporter: [['allure-playwright', {outputFolder: 'allure-results'}]]
+    
+    // Generate and view reports
+    npx playwright test --reporter=allure-playwright
+    allure serve allure-results
+    ```
+
+31. Q: What are the advantages of using Playwright over other automation tools?
+A: Key advantages include:
+   - Cross-browser support with a single API
+   - Auto-wait capabilities reducing flaky tests
+   - Network interception and mocking
+   - Modern architecture with async/await support
+   - Better performance with native automation
+   - Built-in test runner and assertions
+   - Mobile emulation support
+   - Strong TypeScript support
+
+32. Q: How do you handle dynamic web elements in Playwright?
+A: Several approaches from our project:
+    ```javascript
+    // Wait for element to be visible
+    await page.waitForSelector('.dynamic-element');
+    
+    // Use regex in locators
+    await page.locator('text=/Submit$/').click();
+    
+    // Dynamic ID handling
+    await page.locator('div[id*="partial-id"]').click();
+    
+    // Wait for network idle
+    await page.waitForLoadState('networkidle');
+    ```
+
+33. Q: How do you handle authentication in Playwright tests?
+A: Multiple approaches:
+    ```javascript
+    // 1. Login before tests using hooks
+    test.beforeAll(async ({ browser }) => {
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto('/login');
+        await page.fill('#username', 'user');
+        await page.fill('#password', 'pass');
+        await page.click('#login');
+        // Save storage state
+        await context.storageState({ path: 'auth.json' });
+    });
+
+    // 2. Reuse authentication state
+    const context = await browser.newContext({
+        storageState: 'auth.json'
+    });
+    ```
+
+34. Q: How do you handle downloads in Playwright?
+A: Example implementation:
+    ```javascript
+    // Wait for download
+    const downloadPromise = page.waitForEvent('download');
+    await page.click('#download-button');
+    const download = await downloadPromise;
+    
+    // Save downloaded file
+    await download.saveAs('./downloads/file.pdf');
+    ```
+
+35. Q: How do you handle shadow DOM elements in Playwright?
+A: Playwright handles shadow DOM automatically:
+    ```javascript
+    // Access element in shadow DOM
+    await page.locator('pierce/#shadow-button').click();
+    
+    // Using deep selector
+    await page.locator('div >> #shadow-content').click();
+    ```
+
+36. Q: How do you implement data-driven testing in Playwright?
+A: Example using test data:
+    ```javascript
+    const testData = [
+        { username: 'user1', password: 'pass1' },
+        { username: 'user2', password: 'pass2' }
+    ];
+    
+    for (const data of testData) {
+        test(`Login test for ${data.username}`, async ({ page }) => {
+            await page.fill('#username', data.username);
+            await page.fill('#password', data.password);
+        });
+    }
+    ```
+
+37. Q: How do you handle network requests and responses in Playwright?
+A: Multiple approaches:
+    ```javascript
+    // 1. Route interception
+    await page.route('**/api/users', route => {
+        route.fulfill({
+            status: 200,
+            body: JSON.stringify({ data: 'mocked' })
+        });
+    });
+    
+    // 2. Wait for response
+    const responsePromise = page.waitForResponse('**/api/users');
+    await page.click('#submit');
+    const response = await responsePromise;
+    expect(response.status()).toBe(200);
+    ```
+
+38. Q: How do you handle parallel test execution in Playwright?
+A: Configuration in playwright.config.js:
+    ```javascript
+    module.exports = {
+        workers: 3,  // Number of parallel workers
+        fullyParallel: true,  // Run tests in parallel
+        projects: [
+            {
+                name: 'chromium',
+                use: { ...devices['Desktop Chrome'] }
+            },
+            {
+                name: 'firefox',
+                use: { ...devices['Desktop Firefox'] }
+            }
+        ]
+    };
+    ```
+
+39. Q: How do you handle environment variables in Playwright?
+A: Multiple approaches:
+    ```javascript
+    // 1. Using dotenv
+    require('dotenv').config();
+    
+    // 2. In playwright.config.js
+    use: {
+        baseURL: process.env.BASE_URL,
+        extraHTTPHeaders: {
+            'API-Key': process.env.API_KEY
+        }
+    }
+    
+    // 3. In test
+    test('Environment test', async ({ page }) => {
+        await page.goto(process.env.TEST_URL);
+    });
+    ```
+
+40. Q: How do you handle test timeouts in Playwright?
+A: Various timeout configurations:
+    ```javascript
+    // 1. Global timeout in config
+    timeout: 30000,
+    
+    // 2. Test-level timeout
+    test('Slow test', async ({ page }) => {
+        test.setTimeout(60000);
+        // Test code
+    });
+    
+    // 3. Action-level timeout
+    await page.click('button', { timeout: 10000 });
+    ```
+
+41. Q: How do you handle visual testing in Playwright?
+A: Using screenshot comparison:
+    ```javascript
+    // 1. Take screenshot
+    await page.screenshot({
+        path: 'screenshot.png',
+        fullPage: true
+    });
+    
+    // 2. Compare screenshots
+    await expect(page).toHaveScreenshot('baseline.png', {
+        maxDiffPixels: 100
+    });
+    ```
+
+42. Q: What are fixtures in Playwright and how do you use them?
+A: Custom fixtures example:
+    ```javascript
+    const test = base.extend({
+        loggedInPage: async ({ page }, use) => {
+            await page.goto('/login');
+            await page.fill('#username', 'user');
+            await page.click('#login');
+            await use(page);
+        }
+    });
+    
+    test('using custom fixture', async ({ loggedInPage }) => {
+        await loggedInPage.click('#profile');
+    });
+    ```
+
+Note: These additional questions and answers complement the existing set and cover more advanced topics in Playwright automation testing. 

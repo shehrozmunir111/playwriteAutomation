@@ -267,4 +267,17 @@ npm i -D @playwright/test allure-playwright
 4) Run the tests
    npx playwright test tests/Reporters.spec.js
 
-5) Generate Allure Report:
+5) Open Allure Report:
+   allure serve allure-results
+
+-----Retries and Test Flakiness------
+
+1) Passed - No retry
+2) Failed - Retry - Failed
+3) Failed - Retry - Passed   // Fleky tests
+
+# Give failing tests 3 retry attempts
+  npx playwright test RetryTest.spec.js --project=chromium --headed --retries=3
+
+-----API Test------
+1. See the file APITests.spec.js
