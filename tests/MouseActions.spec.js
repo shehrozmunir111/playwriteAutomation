@@ -28,7 +28,7 @@ test.skip('Mouse Actions: Double Click Test', async ({ page }) => {
     await expect(page.locator('#field2')).toHaveValue('Hello World!');
     });
 
-    test('Mouse Actions: Drag and Drop Test', async ({ page }) => {
+test('Mouse Actions: Drag and Drop Test', async ({ page }) => {
         await page.goto('https://testautomationpractice.blogspot.com/');
     
         //1) Approach 1: Using dragTo() method
@@ -48,4 +48,4 @@ test.skip('Mouse Actions: Double Click Test', async ({ page }) => {
         await page.mouse.up();
         // verify the text
         await expect(page.locator('#droppable')).toHaveText('Dropped!');
-        });
+    });

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Auto Suggest Dropdown Test', async ({ page }) => {
   await page.goto('https://www.redbus.in/');
 
-  //1) Select the date
+  //1) Select the city
   await page.locator('#src').fill('Delhi');
   await page.waitForSelector("//li[contains(@class,'sc-iwsKbI')]/div/text[1]");
 
