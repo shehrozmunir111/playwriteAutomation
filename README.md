@@ -270,6 +270,14 @@ The project includes the following test files:
   - Automatic retry on failure
   - Test flakiness handling
 
+- **upload-download.spec.js**: Tests Excel file upload and download functionality
+  - Website: https://rahulshettyacademy.com/upload-download-test/index.html
+  - Download Excel file
+  - Modify specific cell values using ExcelJS
+  - Upload modified file
+  - Verify uploaded file content
+  - Handle dynamic table data verification
+
 ## Test Configuration
 
 ### Retry Configuration

@@ -230,8 +230,6 @@
 4. Run the command: npx playwright test Annotations.spec.js --project=chromium --headed --debug
 5. Run the command: npx playwright show-report
 
-
-
 -----Multiple Pages/Windows-----
 1. Create a new file called "HandlingWindows.spec.js"
 2. Run the command: npx playwright test HandlingWindows.spec.js --project=chromium
@@ -281,3 +279,33 @@ npm i -D @playwright/test allure-playwright
 
 -----API Test------
 1. See the file APITests.spec.js
+
+-----Upload and Download File------
+1. Create a new file called "upload-download.spec.js"
+2. Install required dependencies:
+   ```bash
+   npm install exceljs
+   ```
+3. Verify this website https://rahulshettyacademy.com/upload-download-test/index.html
+4. Features demonstrated:
+   - Excel file download handling
+   - ExcelJS for reading and modifying Excel files
+   - File upload handling
+   - Dynamic table content verification
+   - Row and cell locators with complex selectors
+5. Run commands:
+   ```bash
+   npx playwright test upload-download.spec.js --project=chromium
+   npx playwright test upload-download.spec.js --project=chromium --headed
+   npx playwright test upload-download.spec.js --project=chromium --headed --debug
+   npx playwright show-report
+   ```
+6. Key concepts covered:
+   - File download event handling
+   - Excel file manipulation
+   - File system operations
+   - Dynamic table data verification
+   - Complex DOM element location strategies
+
+
+
