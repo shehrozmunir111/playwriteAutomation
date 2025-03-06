@@ -307,5 +307,108 @@ npm i -D @playwright/test allure-playwright
    - Dynamic table data verification
    - Complex DOM element location strategies
 
+-----Data-Driven Testing Approaches------
+1. JSON Data-Driven Testing (datadrivenfromjson.spec.js):
+   - Create JSON file (e.g., placeOrderData.json) with test data
+   - Implement test using data loop:
+     ```javascript
+     const dataSet = require('../utils/placeOrderData.json');
+     for(const data of dataSet) {
+       test(`Test ${data.productName}`, async ({page}) => {
+         // Use data.username, data.password, etc.
+       });
+     }
+     ```
+   - Run with: npx playwright test datadriven.spec.js --project=chromium
+
+2. Fixture-Based Testing (datadrivenfromfixture.spec.js):
+   - Create test-base.js with custom fixtures:
+     ```javascript
+     exports.customTest = base.test.extend({
+       testDataForOrder: {
+         username: "test@example.com",
+         password: "test123",
+         productName: "TEST PRODUCT"
+       }
+     });
+     ```
+   - Implement test using fixtures:
+     ```javascript
+     customTest(`Test $testDataForOrder.productName`, async ({page, testDataForOrder}) => {
+       // Use testDataForOrder.username, etc.
+     });
+     ```
+   - Run with: npx playwright test datadrivenfromfixture.spec.js --project=chromium
+
+Key Differences:
+- Use JSON approach for multiple data variations
+- Use Fixtures for environment-specific configurations
+- Combine both for complex test scenarios
+
+How to create custom scripts to trigger the test from package.json
+
+1. Create a new file called "custom-script.js"
+2. Add the following code in package.json
+"scripts": {
+    "reggression": "npx playwright test Tags.spec.js --project=chromium --grep \"@regression\"",
+    "sanity": "npx playwright test Tags.spec.js --project=chromium --grep \"@sanity\"",
+    "html": "npx playwright test Reporters.spec.js --project=chromium --reporter=html",
+    "junit": "npx playwright test Reporters.spec.js --project=chromium --reporter=junit",
+    "json": "npx playwright test Reporters.spec.js --project=chromium --reporter=json"
+  },
+
+3. Run the command: npm run sanity
+4. Run the command: npm run reggression
+5. Run the command: npm run html
+6. Run the command: npm run junit
+7. Run the command: npm run json
+
+-----Install Jankins & Configure-----
+1. Install Jankins in your machine
+   go to https://jenkins.io/download/
+   download the 'Genaric Java Package (.war)'
+   open the terminal and go to the folder where you have downloaded the jenkins.war file
+   run the command: java -jar jenkins.war --httpPort=9090
+   if you get error like this:
+   {
+      C:\Users\Shehroz\Downloads>java -jar jenkins.war -httpPort=9090
+      Running with Java 23 from C:\Program Files\Java\jdk-23, which is not yet fully supported.
+      Run the command again with the --enable-future-java flag to enable preview support for future Java versions.
+      Supported Java versions are: [17, 21]
+      See https://jenkins.io/redirect/java-support/ for more information.
+   }
+   then run the command: java -jar jenkins.war --enable-future-java --httpPort=9090
+2. open the browser and go to http://localhost:9090/
+3. unlock jenkins by giving the password that is present in the terminal
+4. install suggested plugins
+5. create first admin user (username: admin, password: admin)
+6. click on 'New Item'
+7. give the name of the project (e.g. 'PlaywrightFramework')
+8. select 'Freestyle project'
+9. click on 'OK'
+10. scroll down and Advanced and select Custom Workspace 
+11. and give the path of the project (e.g. 'C:\Users\Shehroz\Desktop\PlaywrightFramework')
+12. click on 'Add build step' as 'Execute Windows Batch Command' (if you are using mac then select 'Execute Shell')
+13. add the command: npm run sanity
+14. click on 'Save'
+15. click on 'Build Now', it will run the test and you can see the output in the terminal
+16. go to 'Configure'
+17. select 'This project is parameterized'
+18. click on 'Choice Parameter'
+19. give the name of the parameter (e.g. "$Script" - for mac and npm run %SCRIPT_CHOICE% - for windows)
+20. click on 'Add Choice'
+21. add the choice (e.g. 'sanity', 'regression') that is written in the package.json
+22. scroll down and give the name of the parameter (e.g. npm run %SCRIPT_CHOICE%) in the build step command that is written in the 'Execute Windows Batch Command'
+23. click on 'Save'
+24. click on 'Build with Parameters'
+25. select the choice (e.g. 'sanity', 'regression') 
+26. click on 'Build'
+27. click on 'Console Output' to see the output in the terminal
 
 
+-----Jenkins Pipeline-----
+1. Create a new file called "JenkinsPipeline.spec.js"
+2. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium
+3. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium --headed
+4. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium --headed --debug
+5. Run the command: npx playwright show-report
