@@ -34,15 +34,15 @@
     "upload-download-test": "npx playwright test upload-download.spec.js --project=chromium",
     "data-driven-json-test": "npx playwright test datadrivenfromjson.spec.js --project=chromium",
     "data-driven-fixture-test": "npx playwright test datadrivenfromfixture.spec.js --project=chromium",
-
     "sanity": "npx playwright test Tags.spec.js --project=chromium --grep \"@sanity\"",
     "regression": "npx playwright test Tags.spec.js --project=chromium --grep \"@regression\"",
     "all-tests": "npx playwright test --project=chromium",
-    
     "html-report": "npx playwright test Reporters.spec.js --project=chromium --reporter=html",
     "junit-report": "npx playwright test Reporters.spec.js --project=chromium --reporter=junit",
     "json-report": "npx playwright test Reporters.spec.js --project=chromium --reporter=json",
-    "allure-report": "allure serve allure-results"
+    "allure-report": "allure serve allure-results",
+    "cucumber-tag": "npx cucumber-js --tags \"@Validations\"",
+    "cucumber-report": "npx cucumber-js features/Ecommerce.feature --parallel 2 --format html:cucumber-report/cucumber-report.html"
   },
   "keywords": [],
   "author": "",
@@ -55,6 +55,7 @@
     "playwright": "^1.50.1"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
     "exceljs": "^4.4.0"
   }
 }

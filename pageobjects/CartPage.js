@@ -31,5 +31,18 @@ async Checkout()
     return  this.page.locator("h3:has-text('"+productName+"')");
 }
 
+async verifyCartNotEmpty() {
+    await expect(this.page.locator("div li")).toHaveCountGreaterThan(0);
+}
+
+async verifyCartContents(expectedProduct) {
+    await this.page.locator("div li").first().waitFor();
+    const cartItems = await this.page.locator("div li").allTextContents();
+    const hasProduct = cartItems.some(item => 
+        item.toLowerCase().includes(expectedProduct.toLowerCase())
+    );
+    expect(hasProduct).toBeTruthy();
+}
+
 }
 module.exports = {CartPage};

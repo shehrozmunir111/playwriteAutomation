@@ -12,19 +12,21 @@ constructor(page)
 
 async searchProductAddCart(productName)
 {
-    await this.page.waitForTimeout(5000);
-    const titles= await this.productsText.allTextContents();
-    console.log(titles);
-    const count = await this.products.count();
-    for(let i =0; i < count; ++i)
-    {
-    if(await this.products.nth(i).locator("b").textContent() === productName)
-    {
-        //add to cart
-        await this.products.nth(i).locator("text= Add To Cart").click();
-        break;
-     }
+    // Wait for products to load
+    await this.page.locator(".card-body").first().waitFor({ state: 'visible' });
+    
+    // Case-insensitive search
+    const productCount = await this.products.count();
+    for(let i = 0; i < productCount; ++i) {
+        const itemText = await this.products.nth(i).locator("b").textContent();
+        if(itemText.toLowerCase() === productName.toLowerCase()) {
+            // Add to cart with confirmation
+            await this.products.nth(i).locator("text= Add To Cart").click();
+            await this.page.locator("text= Product Added To Cart ").waitFor();
+            return;
+        }
     }
+    throw new Error(`Product "${productName}" not found`);
 }
 
 async navigateToOrders()

@@ -406,9 +406,24 @@ How to create custom scripts to trigger the test from package.json
 27. click on 'Console Output' to see the output in the terminal
 
 
------Jenkins Pipeline-----
-1. Create a new file called "JenkinsPipeline.spec.js"
-2. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium
-3. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium --headed
-4. Run the command: npx playwright test JenkinsPipeline.spec.js --project=chromium --headed --debug
-5. Run the command: npx playwright show-report
+-----Cucumber with Playwright (https://github.com/cucumber/cucumber-js)-----
+1. Install the required dependencies:
+2. Run the command: npm install @cucumber/cucumber
+3. Install 'Cucumber (Gherkin) Full Support' from the marketplace
+4. Create a new folder called 'features'
+5. Create a new file called 'Ecommerce.feature' inside the features folder
+   ---- Naming convention meanings are as follows:----
+   Feature means the main thing we are testing
+   Scenario means the scenario we are testing
+   Given means the pre-condition
+   When means the action
+   Then means the expected result
+   And means the additional information
+   But means the unexpected result
+   * means the wildcard
+
+6. run the command to generate step-definitions: npx cucumber-js
+7. Create a new folder called 'step_definitions'
+8. Create a new file called 'EcommerceSteps.js' inside the step_definitions folder
+9. creat a new folder called 'support'
+10. create a new file called 'hooks.js' inside the support folder
