@@ -280,6 +280,40 @@ npm i -D @playwright/test allure-playwright
 -----API Test------
 1. See the file APITests.spec.js
 
+# I have created a new file for 'Add token to local storage' called APITesing_TokenStorage.spec.js
+
+1. Bypass the login page and directly go to the client page
+   use request.newContext for creating a new context
+   use post method to send the login request, in which we have to pass the url, email and password
+   use expect(loginResponse.ok()).toBeTruthy(); to check if the login is successful
+   use loginResponseJson.token to store the token
+   use page.addInitScript to add the token to the local storage
+   await page.addInitScript(value => {
+        window.localStorage.setItem('token', value);
+    }, token);
+   use page.goto to navigate to the client page
+
+2. Verify the order history
+   Create order with the token
+    const orderResponse = await apiContext.post('/api/ecom/order/create-order', {
+        data: orderPayload,
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json'
+        }
+    });
+   verify the order id is present in the response
+    const orderResponseJson = await orderResponse.json();
+    console.log(orderResponseJson);
+    
+    // Get the order ID from the response
+    orderId = orderResponseJson.orders?.[0] || orderResponseJson.orderId;
+    if (!orderId) {
+        throw new Error('Failed to retrieve order ID from response');
+    }
+    console.log(orderId);
+
+
 -----Upload and Download File------
 1. Create a new file called "upload-download.spec.js"
 2. Install required dependencies:
