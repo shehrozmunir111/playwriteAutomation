@@ -282,6 +282,9 @@ npm i -D @playwright/test allure-playwright
 
 # I have created a new file for 'Add token to local storage' called APITesing_TokenStorage.spec.js
 
+
+
+
 1. Bypass the login page and directly go to the client page
    use request.newContext for creating a new context
    use post method to send the login request, in which we have to pass the url, email and password
@@ -313,6 +316,14 @@ npm i -D @playwright/test allure-playwright
     }
     console.log(orderId);
 
+# I have created a new file for 'Session Storage State' called APITesting_SessionStorage.spec.js
+1. Login to the application through UI and save authentication state
+2. Reuse stored session state for subsequent tests
+3. Key features:
+   - Uses browser.newContext() with storageState
+   - Saves login state to state.json file
+   - Reuses authenticated state across multiple tests
+   - Demonstrates cart operations and order verification
 
 -----Upload and Download File------
 1. Create a new file called "upload-download.spec.js"
