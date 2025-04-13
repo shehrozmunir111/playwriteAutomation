@@ -423,6 +423,7 @@ How to create custom scripts to trigger the test from package.json
       See https://jenkins.io/redirect/java-support/ for more information.
    }
    then run the command: java -jar jenkins.war --enable-future-java --httpPort=9090
+   Or with full Path: "C:\Program Files\Java\jdk-21\bin\java.exe" -jar jenkins.war --httpPort=9090
 2. open the browser and go to http://localhost:9090/
 3. unlock jenkins by giving the password that is present in the terminal
 4. install suggested plugins
